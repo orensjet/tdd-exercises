@@ -1,13 +1,37 @@
+const { NewReleasePrice } = require('./NewReleasePrice');
+const { RegularPrice } = require('./RegularPrice');
+const { ChildrensPrice } = require('./ChildrensPrice');
 const REGULAR = 0;
 const NEW_RELEASE = 1;
 const CHILDRENS = 2;
 
 let Movie = (title, somePriceCode) => {
-  let priceCode = somePriceCode;
+  let priceCode;
+
+  let setPriceCode = (aPriceCode) => {
+    switch (aPriceCode) {
+      case REGULAR:
+        priceCode = RegularPrice();
+        break;
+      case NEW_RELEASE:
+        priceCode = NewReleasePrice();
+        break;
+      case CHILDRENS:
+        priceCode = ChildrensPrice();
+        break;
+      default:
+    }
+  }
+
+  setPriceCode(somePriceCode);
+
+  let getPriceCode = () => {
+    return priceCode.getPriceCode();
+  }
 
   function getCharge(daysRented) {
     let result = 0;
-    switch (priceCode) {
+    switch (getPriceCode()) {
       case REGULAR:
         result += 2;
         if (daysRented > 2) {
@@ -32,9 +56,9 @@ let Movie = (title, somePriceCode) => {
 
     let frequentRenterPoints = 1;
 
-    if ((priceCode === NEW_RELEASE)&&
-     daysRented  > 1)
-     frequentRenterPoints++;
+    if ((getPriceCode() === NEW_RELEASE) &&
+      daysRented > 1)
+      frequentRenterPoints++;
     return frequentRenterPoints;
   }
 
@@ -42,9 +66,9 @@ let Movie = (title, somePriceCode) => {
 
   return {
     get title() { return title; },
-    get priceCode() { return priceCode; },
+    getPriceCode,
+    setPriceCode,
     set priceCode(code) { priceCode = code; },
-
     REGULAR,
     NEW_RELEASE,
     CHILDRENS,

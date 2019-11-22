@@ -7,12 +7,7 @@ let Rental = (movie, daysRented) => {
 
   function getFrequentRentalPoints() {
     return movie.getFrequentRentalPoints(daysRented)
-    let frequentRenterPoints = 1;
-
-    if ((movie.priceCode === Movie.NEW_RELEASE) &&
-      daysRented > 1)
-      frequentRenterPoints++;
-    return frequentRenterPoints;
+    
   }
   return {
     get movie() { return movie; },
