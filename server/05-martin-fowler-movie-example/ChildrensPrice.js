@@ -12,9 +12,13 @@ let ChildrensPrice = () => {
             }
         return result;
       }
+      function getFrequentRentalPoints(daysRented) {
+        return 1;
+      }
     return {
         getPriceCode,
-        getCharge
+        getCharge,
+        getFrequentRentalPoints
     }
 }
 

@@ -9,9 +9,13 @@ let NewReleasePrice = () => {
         let result = 3;
         return daysRented * 3;
     }
+    function getFrequentRentalPoints(daysRented) {
+        return (daysRented > 1?2:1);
+      }
     return {
         getPriceCode,
-        getCharge
+        getCharge,
+        getFrequentRentalPoints
     }
 }
 
