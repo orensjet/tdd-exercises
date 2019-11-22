@@ -27,7 +27,7 @@ let Customer = (name) => {
     addRental(rental) { rentals.push(rental); },
 
     statement() {
-      let total = 0;
+      //let total = 0;
       let frequentRenterPoints = 0;
       let statement = 'Rental Record for ' + name + '\n';
 
