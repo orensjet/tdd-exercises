@@ -8,4 +8,4 @@ let makeMovieFrom = (title, somePriceCode) => {
   };
 };
 
-export {makeMovieFrom};
+module.exports = {makeMovieFrom};

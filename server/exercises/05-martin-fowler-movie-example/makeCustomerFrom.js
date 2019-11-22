@@ -1,4 +1,4 @@
-import {REGULAR, NEW_RELEASE, CHILDRENS} from './movie-codes';
+const {REGULAR, NEW_RELEASE, CHILDRENS} = require('./movie-codes');
 
 let makeCustomerFrom = (name) => {
   let rentals = [];
@@ -66,4 +66,4 @@ let makeCustomerFrom = (name) => {
   };
 };
 
-export {makeCustomerFrom};
+module.exports = {makeCustomerFrom};

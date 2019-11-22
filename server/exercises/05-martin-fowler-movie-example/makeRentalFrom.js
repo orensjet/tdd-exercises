@@ -6,4 +6,4 @@ let makeRentalFrom = (movie, daysRented) => {
   };
 };
 
-export {makeRentalFrom};
+module.exports = {makeRentalFrom};
